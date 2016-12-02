@@ -17,22 +17,27 @@
         </div>
       </div>
     {% endfor %}
-    {% for img in site.data.images limit:2 %}
+    {% for img in site.data.images offset:2 limit:2 %}
     <div class="non-critical-img unit xs-1 m-1-2">
-      <img class="embed-item" src="images/{{img}}" alt="">
-    <noscript>
-      <img class="embed-item" src="images/{{img}}" alt="">
-    </noscript>
+      <div class="non-critical-img unit xs-1 m-1-2">
+        <div class="embed embed-16by9">
+          <img class="embed-item" data-src="images/{{img}}" alt="">
+          <noscript>
+            <img class="embed-item" src="images/{{img}}" alt="">
+          </noscript>
+        </div>
+      </div>
     </div>
-    {% endfor %}
-    {% for img in site.data.images limit:4 %}
-    <div class="non-critical-img unit xs-1 m-1-2">
-      <img class="embed-item" src="images/{{img}}" alt="">
+      {% endfor %}
+      {%for img in site.data.images offset:4 %}
+      <div class="non-critical-img unit xs-1 m-1-2" hidden>
+        <div class="embed embed-16by9">
+          <img class="embed-item"data-src="images/{{img}}" alt="">
+        </div>
+      </div>
+      {% endfor %}
     </div>
-  </div>
-  {% endfor %}
-</div>
 
-<script>{% include_relative js/image-loader.js %}</script>
+  <script>{% include_relative js/img-loader.js %}</script>
 </body>
 </html>
